@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Page Title</title>
+<h1><b>Project Code</b></h1>
+<style>
+    h1 {
+        text-align: center;
+    }
+</style>
+</head>
+<body style="background-color:steelblue;">
+<h3>Data Collection</h3>
+<p style="font-size:25px;">
+    •	Data was scraped from amphibiaweb.org using with Python in Jupyter notebook <br>
+    •	The specific Python libraries used were Selenium and Pandas <br>
+    •	Selenium was used in partnership with a webdriver. This allowed for the website to be rendered so that the html code could be scraped from it <br>
+    •	This html code was already in a table format so it was easily added to a Pandas DataFrame <br>
+    •	The DataFrame was cleaned of null values and then saved as a csv <br>
+    </p>
+<center>
+<img src="/static/selenium.jpg" alt="python" width="200" height="100">
+<img src="/static/pandas.jpg" alt="python" width="200" height="100">
+</center>
+<center><embed type="text/html" src="/static/datacollection.txt"  width="600" height="200" style="background-color:azure"></center>
+<br>
+<br>
+<h3>MongoDB Connection</h3>
+<p style="font-size:25px;">
+    •	Data was stored using MongoDB <br>
+    •   To use this online storage system, the Python libraries json and pymongo were used <br>
+    •	To do this, the client is defined (the specific MongoDB account) and Jupyter notebook connects to this account <br>
+    •	Then, a database and collection are defined and the information in the DataFrame is converted to a dictionary format <br>
+    •	Final, the data is sent to MongoDB where it is stored in a specific database and collection as defined by the client <br>
+    </p>
+<center><embed type="text/html" src="/static/mongo.txt"  width="600" height="200" style="background-color:azure"></center>
+<br>
+<center><img src= "/static/mongo2.jpg" alt="mongoscreenshot" width="600" height="200"></center>
+<br>
+<h3>Sample Data</h3>
+<center><img src="/static/datasample.jpg" width="800" height="400"></center>
+<br>
+<p align="center"><a href=home><button style="height:75px;width:150px">Home</button></a></p>
+<style>
+    p {
+        text-align: center;
+    }
+    h3 {
+        text-align: center;
+    }
+</style>
+</body>
+</html>

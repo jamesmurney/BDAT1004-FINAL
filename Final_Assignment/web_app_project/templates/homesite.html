@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<h1><b>Final Project Group 4</b></h1>
+	<h2>Presentation for XYZ Corporation</h2>
+	<img src="https://www.edcns.ca/wp-content/uploads/georgian-college-logo-2017.jpg">
+	<p id="t"></p>
+	<script>
+	var d = new Date();
+	document.getElementById("t").innerHTML = d;
+	document.getElementById("t").style.textAlign = "center"
+	</script>
+	<style>
+	h1 {text-align: center;}
+	h2 {text-align: center;}
+	img {
+		display: block;
+  		margin-left: auto;
+  		margin-right: auto;
+		width: 15%;
+		height: 15%;
+	}
+	</style>
+	<link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
+</head>
+<body style="background-color:lightsteelblue;">
+<script>
+function myFunction() {
+document.getElementById("team").innerHTML = "Abhishek Abhishek,  Carolyn Knight, James Murney, Sweta Bipinkumar Patel";
+}
+</script>
+<p id="team" style="text-align:center">Our Team</p>
+<div>
+<button type="button" onclick="myFunction()">Show Team</button>
+</div>
+<h2>Project Directory</h2>
+<p align="center"><a href=summary ><button style="height:75px;width:150px">Project Summary</button></a></p>
+<p align="center"><a href=code ><button style="height:75px;width:150px">Data Collection</button></a></p>
+<p align="center"><a href=analysis ><button style="height:75px;width:150px">Analysis</button></a></p>
+<style>
+	button {
+	margin:auto;
+	display:block;
+	color:black;
+	}
+</style>
+</body>
+</html>

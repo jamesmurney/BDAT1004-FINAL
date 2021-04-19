@@ -1,0 +1,31 @@
+A client has asked our team to build a proof of concept "Web" application to demonstrate
+our abilities as a team. They have informed us they are prepared to contract our team for
+several years however, they have many other bids to review. We need to show
+them why our team is right for the job.
+
+XYZ Corporation has asked to see a 15-minute presentation that incorporates the following:
+• Produce a presentation using presentation software
+o Show the Project Summary
+o Talk about our team and skills
+• Demonstrate our application using a URL that can be accessed outside of a local machine
+o Use a cloud server such as Microsoft Azure/GoCloud/Amazon AWS
+• Allow time for questions
+
+The key points they would like to see in our presentation are:
+1. Demonstrate the acquisition of a data source from a remote source (URL)
+o Use a data set that is meaningful and would demonstrate your
+understanding of the type of data XYZ would be interested in
+o Use Python to acquire data and store into a database
+2. Store acquired data in a database
+o Use a cloud database you choose the type of database you feel is most
+appropriate (RDMS: SQL, PostgreSQL, mySQL or noSQL:
+MongoDB, Firebase, Cassandra, or something else you want to try)
+o Use Python to run a pseudo-batch process that runs every 24-hours to
+acquire data and store in this database
+▪ Describe how your process functions
+3. Display results on a Web Site
+o Use a web application framework like Flask or Django, server-side
+code will be python
+o Use JavaScript on the client side to display a dashboard visualization
+of the data using charts and graphs (for example using Google Charts)
+o Conduct a fit gap analysis

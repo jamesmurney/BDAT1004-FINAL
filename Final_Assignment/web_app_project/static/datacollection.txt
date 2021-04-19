@@ -1,0 +1,56 @@
+# import Selenium to render website
+# import pandas to use DataFrame
+
+from selenium import webdriver
+import pandas as pd
+
+# use Chrome Driver to render access to website
+driver = webdriver.Chrome('C:\Program Files\chromedriver.exe')
+
+# URL to be accessed by webdriver
+driver.get("https://amphibiaweb.org/cgi/amphib_query?rel-common_name=like&rel-family=equals&rel-ordr=equals&rel-intro_isocc=like&rel-description=like&rel-distribution=like&rel-life_history=like&rel-trends_and_threats=like&rel-relation_to_humans=like&rel-comments=like&rel-submittedby=like&max=200&orderbyaw=Genus%2Bspecies&include_synonymies=Yes&show_photos=Yes&rel-scientific_name=contains&where-scientific_name=&rel-genus=equals&where-genus=&rel-species=equals&where-species=&where-common_name=&where-clade=&where-subfamily=&where-family=any&where-ordr=any&rel-isocc=occurs+in&where-isocc=Canada&where-isocc=United+States&rel-species_account=matchboolean&where-species_account=&rel-declinecauses=equals&where-declinecauses=&rel-iucn=begins+with&where-iucn=&rel-cites=equals&where-cites=&where-submittedby=")
+
+# driver inspects page source
+html = driver.page_source
+
+# create DataFrame from html
+tables = pd.read_html(html)
+tables
+
+#close driver
+driver.close()
+
+# access second table within HTML
+# rename Dataframe to 'Amphibians'
+Amphibians = tables[1]
+Amphibians
+
+# remove 'Photo', 'Sound' columns from DataFrame
+# remove any other entries with null values
+Amphibians = tables[1]
+Amphibians_Final = Amphibians.drop(['Photo','Sound'], axis=1).dropna()
+Amphibians_Final
+
+# Save DataFrame to csv files
+Amphibians_Final.to_csv('AmphibiansData.csv', index = False, encoding = 'utf-8')
+
+# import libraries to connect to MongoDB
+from pymongo import MongoClient
+import json
+
+# connect to the Database Client
+try:
+    client = MongoClient('mongodb+srv://carolyn:bdatcarolyn@bigdata.mtnre.mongodb.net/myFirstDatabase?retryWrites=true&w=majority')
+    print("Connected succesfully!")
+except:
+    print("Could not connect to MongoDB.")
+
+# Define the Database and the Collection
+db = client['BDAT1004']     # connecting to Database
+records = db['Amphibians'] # connect to collection-= 'Amphibians'
+
+# convert DataFrame to dictionary format
+Amphibians_Mongo = Amphibians_Final.to_dict('records')
+
+# add data to MongoDb
+records.insert_many(Amphibians_Mongo)
